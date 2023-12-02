@@ -1,0 +1,4 @@
+*.pyc
+__pycache__
+dictionary
+legacy
