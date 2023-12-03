@@ -52,8 +52,8 @@
           <textarea class="form-control form-control-lg" id="exampleFormControlTextarea1" rows="5" type="text" bind:value="{textValue}"></textarea>
         </div>
 
-        <a class="btn btn-primary" href="/docs/5.3/components/navbar/#offcanvas" role="button" on:click={clearText}>지우기</a>
-        <a class="btn btn-primary" href="/docs/5.3/components/navbar/#offcanvas" role="button" on:click={sendText}>보내기</a>
+        <button on:click={clearText}>지우기</button>
+        <button on:click={sendText}>보내기</button>
       </div>
     </div>
   </div>

@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from transformers import TextClassificationPipeline, BertForSequenceClassification, AutoTokenizer
 
+from starlette.responses import FileResponse
+from starlette.staticfiles import StaticFiles
+
 from typing import Optional
 from pydantic import BaseModel
 import json
@@ -14,7 +17,7 @@ class Item(BaseModel):
 
 origins = [
     "http://localhost:4173",
-    "http://127.0.0.1:4173",
+    "http://127.0.0.1:8000",
 ]
 
 app.add_middleware(
@@ -24,6 +27,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.mount("/assets", StaticFiles(directory="frontend/dist/assets"))
 
 model_name = 'smilegate-ai/kor_unsmile'
 model = BertForSequenceClassification.from_pretrained(model_name)
@@ -38,9 +43,9 @@ pipe = TextClassificationPipeline(
     )
 
 
-@app.get("/hello")
-def hello():
-    return {"message": "Hello world!"}
+@app.get("/")
+def index():
+    return FileResponse("frontend/dist/index.html")
 
 @app.post("/getInfo")
 def create_item(item: Item):
