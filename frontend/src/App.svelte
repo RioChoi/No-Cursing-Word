@@ -4,7 +4,6 @@
   import Word from './components/Word.svelte'
 
   let result = "아직 뭐 없음"
-  let message;
   let word;
   let textValue = ''
 
@@ -44,6 +43,47 @@
     </a>
   </header>
 
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      단어 추가
+    </button>
+    <ul class="dropdown-menu">
+      <form class="px-4 py-3">
+        <div class="mb-3">
+          <label for="exampleDropdownFormEmail1" class="form-label">욕설/혐오 단어</label>
+          <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="욕설 입력">
+        </div>
+        <div class="mb-3">
+          <label for="exampleDropdownFormEmail1" class="form-label">태그</label>
+          <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="밑 표 참고">
+        </div>
+        <div class="mb-3">
+          <label for="exampleDropdownFormEmail1" class="form-label">설명</label>
+          <input type="email" class="form-control" id="exampleDropdownFormPassword1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleDropdownFormEmail1" class="form-label">용례</label>
+          <input type="email" class="form-control" id="exampleDropdownFormPassword1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleDropdownFormEmail1" class="form-label">기여자 이메일</label>
+          <input type="email" class="form-control" id="exampleDropdownFormPassword1" placeholder="example@example.com">
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="dropdownCheck">
+            <label class="form-check-label" for="dropdownCheck">
+              입력하신 내용이 전부 정확한가요?
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">제출</button>
+      </form>
+    </ul>
+  </div>
+
+  <br>
+
   <div class="bg-body-tertiary p-2 mb-4 rounded">
     <div class="py-5 mx-auto">
       <div class="container">
@@ -54,6 +94,7 @@
 
         <button on:click={clearText}>지우기</button>
         <button on:click={sendText}>보내기</button>
+
       </div>
     </div>
   </div>
@@ -73,9 +114,11 @@
     </div>
   </div>
 
+  
+
   <div class="footer">
     <footer class="pt-3 mt-4 text-body-secondary border-top">
-      © 2023
+      © 2023 경희대학교 세계와 시민 G17분반
     </footer>
   </div>
 </div>
