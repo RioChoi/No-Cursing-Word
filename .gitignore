@@ -1,3 +1,4 @@
 *.pyc
+*.hwp
 __pycache__
 legacy
